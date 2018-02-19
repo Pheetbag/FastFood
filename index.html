@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es-VEN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Inicio | FastFood</title>
+    <link type="text/css" rel="stylesheet" href="styles/startPage.css?v=0.1.40" />
+    <link type="text/css" rel="stylesheet" href="styles/gamePage.css?v=0.0.27" />
+    <link type="text/css" rel="stylesheet" href="styles/gameParts.css?v=0.1.10" />
+    <link type="text/css" rel="stylesheet" href="styles/gameFood.css" />
+    <link rel="shortcut icon" href="resources/logo/favicon.png" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
+</head>
+<body>
+   <div class="mainWindow">
+
+        <div class="startWindow" id="startWindow">
+            <div class="startWindow-panel">
+                <div class="logo"></div>
+
+                <input type="text" autofocus="true" placeholder="Ingrese nombre de jugador" class="inputUser" id="inputUser"/>
+
+                <hr class="division"/>
+
+                <div class="instructionBox">
+
+                    <br/>     
+
+                    <p>Instrucciones</p>
+                    <br/>
+                    <p>orem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia tempore voluptatibus culpa cum necessitatibus? At veritatis voluptatum omnis enim numquam velit vero eaque autem adipisci nihil, reiciendis cupiditate dignissimos obcaecati pariatur delectus corrupti quibusdam ex tenetur praesentium magni ullam officia in. Sequi dolorum eaque at laboriosam suscipit praesentium ipsum sit.</p>
+                    <br/>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores quaerat, repellendus sunt ipsa consequuntur unde quidem numquam maxime aspernatur cumque, illo doloribus dolore non ut! Doloribus earum quam neque odit amet modi nesciunt minus deleniti nobis eveniet iusto deserunt, temporibus rerum beatae. Doloribus iure cum reiciendis eius fugit! Nihil omnis maxime assumenda nulla ipsum obcaecati, voluptates voluptate velit commodi quas sunt officiis impedit aliquam dignissimos dolores, incidunt doloremque laudantium tenetur beatae fugiat illum totam qui ratione. Repudiandae minus inventore officia. Quod sint officia laborum dolorem dignissimos expedita exercitationem quae eos dicta. Quod debitis eveniet ipsa voluptatem saepe delectus, nobis numquam dignissimos nostrum velit deleniti assumenda quibusdam accusamus iure aliquam. Iure quibusdam vitae in impedit cum nesciunt explicabo id deserunt magnam quis dignissimos nihil, repellendus ratione aspernatur, suscipit dicta? Voluptatum amet, exercitationem aut dolor, fuga vitae earum unde repellendus, impedit ad quae corporis ducimus nihil nulla. Fugit harum voluptates, perferendis necessitatibus impedit possimus accusamus modi quo. Recusandae fuga placeat voluptatibus! Maxime!
+                    </p>
+                    <br/>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi delectus nam eum? Ducimus ipsum esse necessitatibus, tempore animi quae minus ab consequatur voluptatem. Dolorem nisi odit, repudiandae at tenetur voluptas?
+                    </p>
+                    <br/>
+                    <br/>
+                    <p>¡Buena Suerte!</p>
+                    <img id="preloaderEngine"/>
+                    <br/>
+                    <br/>     
+                    <br/>
+                    <br/>     
+                    <br/>
+                    <br/>     
+
+                </div>
+
+                <div class="bgDecoration"></div>
+                <div class="startGameSec">
+                    <button class="btn-startGame btn-gray" id="ff-startButton">0%</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="gameWindow">
+
+            <div class="gameBar">
+                <table class="gameBarContainer">
+                    <tr>
+                        <td class="indicatorLeft">
+                            <div id="ff-gamePrint-heart" class="gamePrint">
+                                <div class="gamePrint-heartcontainer" id="ff-gamePrint-heart1"></div>
+                                <div class="gamePrint-heartcontainer" id="ff-gamePrint-heart2"></div>
+                                <div class="gamePrint-heartcontainer" id="ff-gamePrint-heart3"></div>
+                                <div class="gamePrint-heartcontainer" id="ff-gamePrint-heart4"></div>
+                                <div class="gamePrint-heartcontainer" id="ff-gamePrint-heart5"></div>
+                                <div class="gamePrint-heartcontainer" id="ff-gamePrint-heart6"></div>
+
+                            </div>
+                            <div id="ff-gamePrint-star" class="gamePrint">
+                                <div class="gamePrint-starcontainer" id="ff-gamePrint-star1"></div>
+                                <div class="gamePrint-starcontainer" id="ff-gamePrint-star2"></div>
+                                <div class="gamePrint-starcontainer" id="ff-gamePrint-star3"></div>
+                                <div class="gamePrint-starcontainer" id="ff-gamePrint-star4"></div>
+                                <div class="gamePrint-starcontainer" id="ff-gamePrint-star5"></div>
+                                <div class="gamePrint-starcontainer" id="ff-gamePrint-star6"></div>
+                            </div>
+                        </td>
+                        <td class="logoSmall"></td>
+                        <td class="indicatorRight">
+                            <div id="ff-gamePrint-Name"  class="gamePrint">Unknown</div>
+                            <div class="gamePrint">
+                                <div class="coin-ico" id="ff-gamePrint-Cash">0000000</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <table class="gameTable">
+                <tr>
+                    <td class="selectionTable">
+                        <div class="generalBox">
+                            <div class="gameComponentFood" id="ff-componentFood-1" bg-display="food_ico/food1.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-2" bg-display="food_ico/food2.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-3" bg-display="food_ico/food3.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-4" bg-display="food_ico/food4.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-5" bg-display="food_ico/food5.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-6" bg-display="food_ico/food6.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-7" bg-display="food_ico/food7.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-8" bg-display="food_ico/food8.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-9" bg-display="food_ico/food9.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-10" bg-display="food_ico/food10.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-11" bg-display="food_ico/food11.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-12" bg-display="food_ico/food12.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-13" bg-display="food_ico/food13.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-14" bg-display="food_ico/food14.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-15" bg-display="food_ico/food15.png"></div>
+                            <div class="gameComponentFood" id="ff-componentFood-16" bg-display="food_ico/food16.png"></div>
+                            
+                            <div class="gameSectionSalsa">
+                                <div class="gameComponentSalsa" id="ff-componentSauce-1" bg-display="food_ico/sauce-min1.png"></div>
+                                <div class="gameComponentSalsa" id="ff-componentSauce-2" bg-display="food_ico/sauce-min2.png"></div>
+                                <div class="gameComponentSalsa" id="ff-componentSauce-3" bg-display="food_ico/sauce-min3.png"></div>
+                                <div class="gameComponentSalsa" id="ff-componentSauce-4" bg-display="food_ico/sauce-min4.png"></div>
+                            </div>
+                            
+                        </div>
+                    </td>
+                    <td class="mainTable">
+                        <div class="generalBox">
+                            <div class="gameClient" id="ff-gameClient-A">
+                                <div class="gameComponentClient" id="ff-componentClient-A"></div>
+                                <div class="gameComponentWish"
+                                id="ff-componentWish-A1"></div>
+                                <div class="gameComponentWish"
+                                id="ff-componentWish-A2"></div>
+                                <div class="gameComponentWish"
+                                id="ff-componentWish-A3"></div>
+                                <div class="gameComponentWish"
+                                id="ff-componentWish-A4"></div>
+                                <div class="gameComponentSauce" id="ff-componentSauceA5"></div>
+                                <div class="gameComponentPatience" id="ff-componentPatience-A">
+                                    <div class="gameComponentPatience-indicator" id="ff-componentPatience-A1"></div>
+                                </div>
+                            </div>
+                            <div class="gameClient" id="ff-gameClient-B">
+                                <div class="gameComponentClient" id="ff-componentClient-B"></div>
+                                <div class="gameComponentWish"
+                                    id="ff-componentWish-B1"></div>
+                                <div class="gameComponentWish"
+                                    id="ff-componentWish-B2"></div>
+                                 <div class="gameComponentWish"
+                                    id="ff-componentWish-B3"></div>
+                                 <div class="gameComponentWish"
+                                    id="ff-componentWish-B4"></div>
+                                <div class="gameComponentSauce" id="ff-componentSauceB5"></div>
+                                 <div class="gameComponentPatience" id="ff-componentPatience-B">
+                                    <div class="gameComponentPatience-indicator" id="ff-componentPatience-B1"></div>
+                                </div>
+                            </div>
+                            <div class="gameClient" id="ff-gameClient-C">
+                                    <div class="gameComponentClient" id="ff-componentClient-C"></div>
+                                    <div class="gameComponentWish"
+                                        id="ff-componentWish-C1"></div>
+                                    <div class="gameComponentWish"
+                                        id="ff-componentWish-C2"></div>
+                                     <div class="gameComponentWish"
+                                        id="ff-componentWish-C3"></div>
+                                     <div class="gameComponentWish"
+                                        id="ff-componentWish-C4"></div>
+                                    <div class="gameComponentSauce" id="ff-componentSauceC5"></div>
+                                     <div class="gameComponentPatience" id="ff-componentPatience-C">
+                                        <div class="gameComponentPatience-indicator" id="ff-componentPatience-C1"></div>
+                                    </div>
+                            </div>
+                            <div class="gameClient" id="ff-gameClient-D">
+                                    <div class="gameComponentClient" id="ff-componentClient-D"></div>
+                                    <div class="gameComponentWish"
+                                        id="ff-componentWish-D1"></div>
+                                    <div class="gameComponentWish"
+                                        id="ff-componentWish-D2"></div>
+                                     <div class="gameComponentWish"
+                                        id="ff-componentWish-D3"></div>
+                                     <div class="gameComponentWish"
+                                        id="ff-componentWish-D4"></div>
+                                    <div class="gameComponentSauce" id="ff-componentSauceD5"></div>
+                                     <div class="gameComponentPatience" id="ff-componentPatience-D">
+                                        <div class="gameComponentPatience-indicator" id="ff-componentPatience-D1"></div>
+                                    </div>
+                            </div>
+            
+                            <div class="utilityBox" id="ff-gameUtilityBox">
+                                <div class="gameComponentUtility" id="ff-gameUtility-Trash"></div>
+                                <div class="gameComponentUtility" id="ff-gameUtility-SafeA"></div><div class="gameComponentUtility" id="ff-gameUtility-SafeB"></div></div>
+                        </div>
+                    </td>
+                    <td class="drinksTable">
+                        <div class="generalBox">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+                <div class="pause" id="ff-gameComponentPause" state="play"></div>
+
+    </div>
+    <script src="js/init.js"> </script>
+    <script src="js/startSequence.js"> </script>
+    <script src="js/resetProtocol.js"> </script>
+    <script src="js/renderEngine.js"> </script>
+    <script src="js/selectionEngine.js"> </script>
+    <script src="js/clientGenerationEngine.js"> </script>
+    <script src="js/gameActions.js"> </script>
+</body>
+
+</html>
