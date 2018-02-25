@@ -28,7 +28,10 @@ function startGame(){
 //for making better code maintenance, any (or as many as possible) updates (render updates, and code updates) will fall on gameCicle, setting a centraliced place for updates to be tracked.
 //TODO[!] Move those update engines in the future to here.
 
+function newCicle(){}
+
 function gameCicle() {
+
 
     //This increment the currentGameCicle variable.
     //TODO on the future its going to be defined other varibles of currentGameCicle, currentGameCicle_deca that increases in 1 everytime 10 cicles goes(1sec), and currentGameCicle_hecta for 100 cicles (10sec).
