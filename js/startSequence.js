@@ -28,7 +28,13 @@ function startGame(){
 //for making better code maintenance, any (or as many as possible) updates (render updates, and code updates) will fall on gameCicle, setting a centraliced place for updates to be tracked.
 //TODO[!] Move those update engines in the future to here.
 
-function newCicle(){}
+function cicleUpdate(){
+
+    //the object oriented edition of gameCicle
+    game.cicle.update();
+
+
+}
 
 function gameCicle() {
 
