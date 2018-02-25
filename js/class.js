@@ -33,6 +33,6 @@ function Player(){
 
 }
 
-var game = new Game;
+//var game = new Game;
 
 
