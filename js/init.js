@@ -24,14 +24,14 @@ function preloader(gameElements) {
 
     var percentage;
     var elementQuantity = gameElements.length;
-    var percentagePerImage = Math.round(100 / elementQuantity);
+    var percentagePerImage = 100 / elementQuantity;
     var preloaderBox = document.getElementById('preloaderEngine');
     var elementTrack = 0;
 
     function imagePreloaded() {
 
             if((elementTrack + 1) * percentagePerImage <= 100){
-              startButton.innerHTML =  (elementTrack + 1) * percentagePerImage + '%';
+              startButton.innerHTML =  Math.trunc((elementTrack + 1) * percentagePerImage) + '%';
             }else{
             startButton.innerHTML = '100%';
             }
