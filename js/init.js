@@ -1,8 +1,8 @@
 
 //this define the gameLevel you have
-var gameLevel = 0;
-var currentGameCicle = 0;
-var gameCicle_controller;
+var gameLevel = 0;  
+var currentGameCicle = 0; 
+var gameCicle_controller; 
 
 //it control the state of the printObjects in anytime,like, how many heart we have, or stars, andthe rest ofthesystem takes cares of rendering this numbers into the game
 
@@ -19,6 +19,9 @@ function ramdomNumber(a,b) {
     return Math.round(Math.random()*(b-a)+parseInt(a));
 }
 //it makes the preload of all game objects, before giving access to the game. At the end of the verification it enable the Start button, activating the click listener.
+
+
+
 
 function preloader(gameElements) {
 
@@ -75,6 +78,15 @@ function activeButton(){
 
 var preloadElement = [
     "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
     "client_ico/client2",
     "client_ico/client3",
     "client_ico/client4",
@@ -110,14 +122,62 @@ var preloadElement = [
     "food_ico/sauce-min4",
     "gameGeneral_ico/coin",
     "gameGeneral_ico/heart_active",
+    "gameGeneral_ico/heart_active_On",
     "gameGeneral_ico/heart_dead",
+    "gameGeneral_ico/heart_dead_On",
     "gameGeneral_ico/heart_extra",
+    "gameGeneral_ico/heart_extra_On",
+    "gameGeneral_ico/heart_On",
+    "gameGeneral_ico/starWhite",
+    "gameGeneral_ico/starWhite_Rainbow0",
+    "gameGeneral_ico/starWhite_Rainbow1",
+    "gameGeneral_ico/starWhite_Rainbow2",
+    "gameGeneral_ico/starWhite_Rainbow3",
+    "gameGeneral_ico/starWhite_Rainbow4",
+    "gameGeneral_ico/starWhite_Rainbow5",
+    "gameGeneral_ico/starWhite_Rainbow6",
+    "gameGeneral_ico/starWhite_Rainbow7",
+    "gameGeneral_ico/starWhite_Rainbow8",
+    "gameGeneral_ico/starWhite_Rainbow9",
+    "gameGeneral_ico/starWhite_Rainbow10",
+    "gameGeneral_ico/starWhite_Rainbow11",
     "gameGeneral_ico/star0",
+    "gameGeneral_ico/star0_border",
     "gameGeneral_ico/star1",
+    "gameGeneral_ico/star1_border",
+    "gameGeneral_ico/star1_Rainbow4",
+    "gameGeneral_ico/star1_Rainbow3",
+    "gameGeneral_ico/star1_Rainbow2",
+    "gameGeneral_ico/star1_Rainbow1",
+    "gameGeneral_ico/star1_Rainbow0",
     "gameGeneral_ico/star2",
+    "gameGeneral_ico/star2_border",
+    "gameGeneral_ico/star2_Rainbow4",
+    "gameGeneral_ico/star2_Rainbow3",
+    "gameGeneral_ico/star2_Rainbow2",
+    "gameGeneral_ico/star2_Rainbow1",
+    "gameGeneral_ico/star2_Rainbow0",
     "gameGeneral_ico/star3",
+    "gameGeneral_ico/star3_border",
+    "gameGeneral_ico/star3_Rainbow4",
+    "gameGeneral_ico/star3_Rainbow3",
+    "gameGeneral_ico/star3_Rainbow2",
+    "gameGeneral_ico/star3_Rainbow1",
+    "gameGeneral_ico/star3_Rainbow0",
     "gameGeneral_ico/star4",
+    "gameGeneral_ico/star4_border",
+    "gameGeneral_ico/star4_Rainbow4",
+    "gameGeneral_ico/star4_Rainbow3",
+    "gameGeneral_ico/star4_Rainbow2",
+    "gameGeneral_ico/star4_Rainbow1",
+    "gameGeneral_ico/star4_Rainbow0",
     "gameGeneral_ico/star5",
+    "gameGeneral_ico/star5_border",
+    "gameGeneral_ico/star5_Rainbow0",
+    "gameGeneral_ico/star5_Rainbow1",
+    "gameGeneral_ico/star5_Rainbow2",
+    "gameGeneral_ico/star5_Rainbow3",
+    "gameGeneral_ico/star5_Rainbow4",
     "gameGeneral_ico/trashCan",
     "gameGeneral_ico/trashCan-active"
 ];
@@ -252,5 +312,3 @@ var gameObjectsClient = [
 
 ];
 
-//after all init process are done, it start the preload, and the game access.
-preloader(preloadElement);

@@ -48,7 +48,10 @@ function clientAction_lost(client){
 
     //this is use in case the client is deleted because it was lost, so we get the game changes, like losing life
 
-    printAction_heart(false, 1);
+
+    //printAction_heart(false, 1);
+    player.set('hearts', -1); 
+
     clientAction_delete(client);
 
 }
