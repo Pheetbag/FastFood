@@ -31,7 +31,27 @@ function startGame(){
 function cicleUpdate(){
 
     //the object oriented edition of gameCicle
+
+    //check if cicle is actived
+    if(game.cicle.state == 'off'){return;}
+
+    //update all cicle.currents.
     game.cicle.update();
+
+    //CICLE PROCESS
+
+        //TODO IMPORTANT!!!!!!! 
+        //In the future this will work in a different way, we will run checkMemory and save the return in a var, if the value is false, then the memory is update, otherwise it return and array,that will be run for starting the renders of the partitions of the memory not updated.
+
+        //We update the print renders.
+        if(render.print.checkMemory('hearts', game.state.render.print.hearts) == false){ 
+            render.print.hearts(game.state.render.print.hearts); 
+        };
+
+        if(render.print.checkMemory('stars', game.state.render.print.stars) == false){ 
+            render.print.stars(game.state.render.print.stars); 
+        };
+    
 
 
 }
@@ -46,8 +66,8 @@ function gameCicle() {
     //update renders in every cicle
 
         //prints
-    render_printHeart();
-    render_printStar();
+    //render_printHeart();
+    //render_printStar();
     render_printCash();
 
         //clients

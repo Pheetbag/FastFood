@@ -20,18 +20,21 @@ function ramdomNumber(a,b) {
 }
 //it makes the preload of all game objects, before giving access to the game. At the end of the verification it enable the Start button, activating the click listener.
 
+
+
+
 function preloader(gameElements) {
 
     var percentage;
     var elementQuantity = gameElements.length;
-    var percentagePerImage = Math.round(100 / elementQuantity);
+    var percentagePerImage = 100 / elementQuantity;
     var preloaderBox = document.getElementById('preloaderEngine');
     var elementTrack = 0;
 
     function imagePreloaded() {
 
             if((elementTrack + 1) * percentagePerImage <= 100){
-              startButton.innerHTML =  (elementTrack + 1) * percentagePerImage + '%';
+              startButton.innerHTML =  Math.trunc((elementTrack + 1) * percentagePerImage) + '%';
             }else{
             startButton.innerHTML = '100%';
             }
@@ -75,6 +78,15 @@ function activeButton(){
 
 var preloadElement = [
     "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
+    "client_ico/client1",
     "client_ico/client2",
     "client_ico/client3",
     "client_ico/client4",
@@ -116,12 +128,56 @@ var preloadElement = [
     "gameGeneral_ico/heart_extra",
     "gameGeneral_ico/heart_extra_On",
     "gameGeneral_ico/heart_On",
+    "gameGeneral_ico/starWhite",
+    "gameGeneral_ico/starWhite_Rainbow0",
+    "gameGeneral_ico/starWhite_Rainbow1",
+    "gameGeneral_ico/starWhite_Rainbow2",
+    "gameGeneral_ico/starWhite_Rainbow3",
+    "gameGeneral_ico/starWhite_Rainbow4",
+    "gameGeneral_ico/starWhite_Rainbow5",
+    "gameGeneral_ico/starWhite_Rainbow6",
+    "gameGeneral_ico/starWhite_Rainbow7",
+    "gameGeneral_ico/starWhite_Rainbow8",
+    "gameGeneral_ico/starWhite_Rainbow9",
+    "gameGeneral_ico/starWhite_Rainbow10",
+    "gameGeneral_ico/starWhite_Rainbow11",
     "gameGeneral_ico/star0",
+    "gameGeneral_ico/star0_border",
     "gameGeneral_ico/star1",
+    "gameGeneral_ico/star1_border",
+    "gameGeneral_ico/star1_Rainbow4",
+    "gameGeneral_ico/star1_Rainbow3",
+    "gameGeneral_ico/star1_Rainbow2",
+    "gameGeneral_ico/star1_Rainbow1",
+    "gameGeneral_ico/star1_Rainbow0",
     "gameGeneral_ico/star2",
+    "gameGeneral_ico/star2_border",
+    "gameGeneral_ico/star2_Rainbow4",
+    "gameGeneral_ico/star2_Rainbow3",
+    "gameGeneral_ico/star2_Rainbow2",
+    "gameGeneral_ico/star2_Rainbow1",
+    "gameGeneral_ico/star2_Rainbow0",
     "gameGeneral_ico/star3",
+    "gameGeneral_ico/star3_border",
+    "gameGeneral_ico/star3_Rainbow4",
+    "gameGeneral_ico/star3_Rainbow3",
+    "gameGeneral_ico/star3_Rainbow2",
+    "gameGeneral_ico/star3_Rainbow1",
+    "gameGeneral_ico/star3_Rainbow0",
     "gameGeneral_ico/star4",
+    "gameGeneral_ico/star4_border",
+    "gameGeneral_ico/star4_Rainbow4",
+    "gameGeneral_ico/star4_Rainbow3",
+    "gameGeneral_ico/star4_Rainbow2",
+    "gameGeneral_ico/star4_Rainbow1",
+    "gameGeneral_ico/star4_Rainbow0",
     "gameGeneral_ico/star5",
+    "gameGeneral_ico/star5_border",
+    "gameGeneral_ico/star5_Rainbow0",
+    "gameGeneral_ico/star5_Rainbow1",
+    "gameGeneral_ico/star5_Rainbow2",
+    "gameGeneral_ico/star5_Rainbow3",
+    "gameGeneral_ico/star5_Rainbow4",
     "gameGeneral_ico/trashCan",
     "gameGeneral_ico/trashCan-active"
 ];
@@ -258,3 +314,5 @@ var gameObjectsClient = [
 
 //after all init process are done, it start the preload, and the game access.
 preloader(preloadElement);
+
+var percentagePe = 100 / preloadElement.length;
