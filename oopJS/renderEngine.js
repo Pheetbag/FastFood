@@ -25,7 +25,8 @@ function RenderPrint(){
         //save all gameStates for print in a memory
     
         hearts : [1,1,1,1,1,1], 
-        stars : [0,0,0,0,0,0]
+        stars : [0,0,0,0,0,0],
+        money : 0,
     
     };
 
@@ -177,6 +178,22 @@ function RenderPrint(){
 
     }
 
+    //render money
+    RenderPrint.prototype.money = function(gameState){
+        
+        //If memory is updated, no render needed.
+        if(this.checkMemory('money', gameState)){ return; }
+    
+            game.object.money.style.color = 'rgb(216, 57, 48)';
+
+        if(this.memory.money > gameState){
+            //LETRAS ROJAS
+        }else{
+
+        }
+
+    }
+
     RenderPrint.prototype.checkMemory = function(partition, gameState){
 
         //Memory checks test for changes in the gameState compared to the last render memory saved.
@@ -185,6 +202,9 @@ function RenderPrint(){
         }
         else if(partition == 'stars'){
             if(!game.arrEqual(gameState, this.memory.stars)){ return false; /*no updated memory */}
+        }
+        else if(partition == 'money'){
+            if(!game.arrEqual(gameState, this.memory.money)){ return false; /*no updated memory */}
         }
         else{ return true; }
     }
@@ -196,6 +216,9 @@ function RenderPrint(){
         }
         else if(partition == 'stars'){
             this.memory.stars = gameState; 
+        }
+        else if(partition == 'money'){
+            this.memory.cash = gameState;
         }
     }
 

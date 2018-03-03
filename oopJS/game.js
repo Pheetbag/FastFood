@@ -10,6 +10,7 @@ function Game(){
 
             hearts: 6,
             stars: 0,
+            money: 0,
 
         },
 
@@ -19,6 +20,7 @@ function Game(){
 
                 hearts: [1,1,1,1,1,1],
                 stars : [0,0,0,0,0,0],
+                money: 0,
 
             }
         }
