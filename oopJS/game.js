@@ -155,6 +155,18 @@ function Player(){
                 return this.stars;
 
         }
+        else if (type == 'money'){
+
+            if(strict == false){   this.money += quantity; }
+            else if (strict == true){   this.money = quantity; }
+
+            //update the game state, to the new one.
+            game.state.render.print.money = this.money;
+            game.state.player.money = this.money;
+
+            return this.money;
+
+        }
 
 
     }

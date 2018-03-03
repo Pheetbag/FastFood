@@ -127,7 +127,44 @@ function RenderPrint(){
 
             }
         }
+        else if (element == 'money'){
 
+            let tempThis = this;
+
+            console.log(tempThis.memory.money);
+
+            let tempAdded = 0;
+
+            if(type == '++'){
+
+                for(i = 0; (this.memory.money + i) != gameState; i++){
+                
+                    setTimeout(function(){
+                        game.object.money.innerHTML = (tempThis.memory.money + i);
+                    }, 100);
+    
+                    
+                    if((this.memory.money + i) == gameState){break;}
+                    tempAdded++;
+    
+                }
+
+            }else if (type == '--'){
+
+                for(i = 0; (this.memory.money - i) != gameState; i--){
+                
+                    setTimeout(function(){
+                        game.object.money.innerHTML = (tempThis.memory.money - i);
+                    }, 10);
+    
+    
+                    if((this.memory.money - i) == gameState){break;}
+    
+                }
+
+            }
+
+        }
     }
 
 
@@ -183,14 +220,32 @@ function RenderPrint(){
         
         //If memory is updated, no render needed.
         if(this.checkMemory('money', gameState)){ return; }
-    
+
+        //text color
+        if(gameState < 0){
+
             game.object.money.style.color = 'rgb(216, 57, 48)';
 
-        if(this.memory.money > gameState){
-            //LETRAS ROJAS
         }else{
 
+            game.object.money.style.color = 'white';
+
         }
+
+        //animations ++ or --
+        if(this.memory.money > gameState){
+
+            this.animate('money', gameState, '--'); 
+
+
+        }else{
+
+            this.animate('money', gameState, '++'); 
+
+        }
+
+        this.updateMemory('money', gameState);
+
 
     }
 
@@ -204,7 +259,7 @@ function RenderPrint(){
             if(!game.arrEqual(gameState, this.memory.stars)){ return false; /*no updated memory */}
         }
         else if(partition == 'money'){
-            if(!game.arrEqual(gameState, this.memory.money)){ return false; /*no updated memory */}
+            if(gameState != this.memory.money){ return false; /*no updated memory */}
         }
         else{ return true; }
     }
@@ -218,7 +273,7 @@ function RenderPrint(){
             this.memory.stars = gameState; 
         }
         else if(partition == 'money'){
-            this.memory.cash = gameState;
+            this.memory.money = gameState;
         }
     }
 
