@@ -349,5 +349,3 @@ var gameObjectsClient = [
 
 //after all init process are done, it start the preload, and the game access.
 preloader(preloadElement);
-
-var percentagePe = 100 / preloadElement.length;
