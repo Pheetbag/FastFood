@@ -61,7 +61,9 @@ function clientAction_served(client){
     //this is use in case we served a client so we can make changes like gain cash
 
 
-    printAction_cash(true, 100);
+    //printAction_cash(true, 100);
+    player.set('money', 100);
+
 
     clientAction_delete(client);
 
@@ -116,7 +118,8 @@ function printAction_cash(type, quantity){
 
 function selectionAction_trash(){
 
-    printAction_cash(false, 75);
+    //printAction_cash(false, 75);
+    player.set('money', -150); 
     selectionAction_deselect();
 }
 

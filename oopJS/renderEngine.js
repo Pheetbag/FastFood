@@ -2,7 +2,7 @@
 
 function Render(){
 
-    this.state = "true";
+    this.state = 'true';
     this.print = new RenderPrint;
     this.memory = {
 
@@ -131,38 +131,48 @@ function RenderPrint(){
 
             let tempThis = this;
 
-            console.log(tempThis.memory.money);
-
             let tempAdded = 0;
+            let tempMemory = this.memory.money;
 
-            if(type == '++'){
+            var tempAddedCompare = tempMemory - gameState;
+            if(tempAddedCompare < 0){ tempAddedCompare = tempAddedCompare * -1; }
 
-                for(i = 0; (this.memory.money + i) != gameState; i++){
-                
-                    setTimeout(function(){
-                        game.object.money.innerHTML = (tempThis.memory.money + i);
-                    }, 100);
-    
-                    
-                    if((this.memory.money + i) == gameState){break;}
-                    tempAdded++;
-    
+            let tempInterval = setInterval(function(){
+
+                if((tempMemory + tempAdded) > gameState && type == '++'){
+
+                    game.object.money.innerHTML = tempThis.memory.money;
+
+                }else if((tempMemory + tempAdded) < gameState && type == '--'){
+
+                    game.object.money.innerHTML = tempThis.memory.money;
+
+                }else{
+                    console.log('re'); 
+                    game.object.money.innerHTML = (tempMemory + tempAdded);
                 }
 
-            }else if (type == '--'){
+                if(((tempMemory  + tempAdded) >= gameState && type == '++') || ((tempMemory  + tempAdded) <= gameState && type == '--')){ clearInterval(tempInterval); }
 
-                for(i = 0; (this.memory.money - i) != gameState; i--){
                 
-                    setTimeout(function(){
-                        game.object.money.innerHTML = (tempThis.memory.money - i);
-                    }, 10);
-    
-    
-                    if((this.memory.money - i) == gameState){break;}
-    
+                if(!(tempAddedCompare > 300)){
+                    if (type == '++'){tempAdded++;}
+                    else if (type == '--'){tempAdded--;}    
+                }
+                else if(!(tempAddedCompare > 2500)){
+                    if (type == '++'){tempAdded += 10;}
+                    else if (type == '--'){tempAdded += -10;} 
+                }
+                else if(!(tempAddedCompare > 10000)){
+                    if (type == '++'){tempAdded += 20;}
+                    else if (type == '--'){tempAdded += -20;} 
+                }
+                else{
+                    if (type == '++'){tempAdded += 100;}
+                    else if (type == '--'){tempAdded += -100;} 
                 }
 
-            }
+            }, 0.1);
 
         }
     }
@@ -171,6 +181,9 @@ function RenderPrint(){
     //render hearts
     RenderPrint.prototype.hearts = function(gameState){
 
+        //if false do not render
+        if(render.state == 'false'){return;}
+        if(this.state == 'false'){return;}
         //If memory is updated, no render needed.
         if(this.checkMemory('hearts', gameState)){ return; }
 
@@ -190,6 +203,9 @@ function RenderPrint(){
     //render stars
     RenderPrint.prototype.stars = function(gameState){
 
+        //if false do not render
+        if(render.state == 'false'){return;}
+        if(this.state == 'false'){return;}
         //If memory is updated, no render needed.
         if(this.checkMemory('stars', gameState)){ return; }
 
@@ -218,6 +234,9 @@ function RenderPrint(){
     //render money
     RenderPrint.prototype.money = function(gameState){
         
+        //if false do not render
+        if(render.state == 'false'){return;}
+        if(this.state == 'false'){return;}
         //If memory is updated, no render needed.
         if(this.checkMemory('money', gameState)){ return; }
 
@@ -234,7 +253,6 @@ function RenderPrint(){
 
         //animations ++ or --
         if(this.memory.money > gameState){
-
             this.animate('money', gameState, '--'); 
 
 
