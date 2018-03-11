@@ -78,15 +78,6 @@ function activeButton(){
 
 var preloadElement = [
     "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
-    "client_ico/client1",
     "client_ico/client2",
     "client_ico/client3",
     "client_ico/client4",
