@@ -51,6 +51,11 @@ function cicleUpdate(){
         if(render.print.checkMemory('stars', game.state.render.print.stars) == false){ 
             render.print.stars(game.state.render.print.stars); 
         };
+        
+        if(render.print.checkMemory('money', game.state.render.print.money) == false){ 
+            render.print.money(game.state.render.print.money); 
+            console.log('need render');
+        };
     
 
 
@@ -68,7 +73,7 @@ function gameCicle() {
         //prints
     //render_printHeart();
     //render_printStar();
-    render_printCash();
+    //render_printCash();
 
         //clients
     render_client();

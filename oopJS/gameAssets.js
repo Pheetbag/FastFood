@@ -3,7 +3,7 @@ function Object(){
 
     //miscelaneous
     this.pause = document.getElementById('ff-gameComponentPause');
-    this.play = document.getElementById('ff-startButton');
+    this.start = document.getElementById('ff-startButton');
 
     //prints
     this.hearts = [
@@ -55,6 +55,7 @@ function Component(){
         "resources/gameGeneral_ico/star5.png",
     ]
 
+    //stars on
     this.starsOn = [
         "resources/gameGeneral_ico/star0_border.png",
         "resources/gameGeneral_ico/star1_border.png",
@@ -65,6 +66,17 @@ function Component(){
         "resources/gameGeneral_ico/starWhite.png",
     ]
 
+    //food
+    this.food = {
+
+        default : [
+            
+        ] , 
+
+    }
+        
+
+    //food for his display in the client wishes (if false it will inherit from the normal display)
 }
 
 

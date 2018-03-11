@@ -10,6 +10,7 @@ function Game(){
 
             hearts: 6,
             stars: 0,
+            money: 0,
 
         },
 
@@ -19,6 +20,7 @@ function Game(){
 
                 hearts: [1,1,1,1,1,1],
                 stars : [0,0,0,0,0,0],
+                money: 0,
 
             }
         }
@@ -151,6 +153,18 @@ function Player(){
                 game.state.player.stars= this.stars;
 
                 return this.stars;
+
+        }
+        else if (type == 'money'){
+
+            if(strict == false){   this.money += quantity; }
+            else if (strict == true){   this.money = quantity; }
+
+            //update the game state, to the new one.
+            game.state.render.print.money = this.money;
+            game.state.player.money = this.money;
+
+            return this.money;
 
         }
 

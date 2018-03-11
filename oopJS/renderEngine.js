@@ -2,7 +2,7 @@
 
 function Render(){
 
-    this.state = "true";
+    this.state = 'true';
     this.print = new RenderPrint;
     this.memory = {
 
@@ -25,7 +25,8 @@ function RenderPrint(){
         //save all gameStates for print in a memory
     
         hearts : [1,1,1,1,1,1], 
-        stars : [0,0,0,0,0,0]
+        stars : [0,0,0,0,0,0],
+        money : 0,
     
     };
 
@@ -126,13 +127,63 @@ function RenderPrint(){
 
             }
         }
+        else if (element == 'money'){
 
+            let tempThis = this;
+
+            let tempAdded = 0;
+            let tempMemory = this.memory.money;
+
+            var tempAddedCompare = tempMemory - gameState;
+            if(tempAddedCompare < 0){ tempAddedCompare = tempAddedCompare * -1; }
+
+            let tempInterval = setInterval(function(){
+
+                if((tempMemory + tempAdded) > gameState && type == '++'){
+
+                    game.object.money.innerHTML = tempThis.memory.money;
+
+                }else if((tempMemory + tempAdded) < gameState && type == '--'){
+
+                    game.object.money.innerHTML = tempThis.memory.money;
+
+                }else{
+                    console.log('re'); 
+                    game.object.money.innerHTML = (tempMemory + tempAdded);
+                }
+
+                if(((tempMemory  + tempAdded) >= gameState && type == '++') || ((tempMemory  + tempAdded) <= gameState && type == '--')){ clearInterval(tempInterval); }
+
+                
+                if(!(tempAddedCompare > 300)){
+                    if (type == '++'){tempAdded++;}
+                    else if (type == '--'){tempAdded--;}    
+                }
+                else if(!(tempAddedCompare > 2500)){
+                    if (type == '++'){tempAdded += 10;}
+                    else if (type == '--'){tempAdded += -10;} 
+                }
+                else if(!(tempAddedCompare > 10000)){
+                    if (type == '++'){tempAdded += 20;}
+                    else if (type == '--'){tempAdded += -20;} 
+                }
+                else{
+                    if (type == '++'){tempAdded += 100;}
+                    else if (type == '--'){tempAdded += -100;} 
+                }
+
+            }, 0.1);
+
+        }
     }
 
 
     //render hearts
     RenderPrint.prototype.hearts = function(gameState){
 
+        //if false do not render
+        if(render.state == 'false'){return;}
+        if(this.state == 'false'){return;}
         //If memory is updated, no render needed.
         if(this.checkMemory('hearts', gameState)){ return; }
 
@@ -152,6 +203,9 @@ function RenderPrint(){
     //render stars
     RenderPrint.prototype.stars = function(gameState){
 
+        //if false do not render
+        if(render.state == 'false'){return;}
+        if(this.state == 'false'){return;}
         //If memory is updated, no render needed.
         if(this.checkMemory('stars', gameState)){ return; }
 
@@ -177,6 +231,42 @@ function RenderPrint(){
 
     }
 
+    //render money
+    RenderPrint.prototype.money = function(gameState){
+        
+        //if false do not render
+        if(render.state == 'false'){return;}
+        if(this.state == 'false'){return;}
+        //If memory is updated, no render needed.
+        if(this.checkMemory('money', gameState)){ return; }
+
+        //text color
+        if(gameState < 0){
+
+            game.object.money.style.color = 'rgb(216, 57, 48)';
+
+        }else{
+
+            game.object.money.style.color = 'white';
+
+        }
+
+        //animations ++ or --
+        if(this.memory.money > gameState){
+            this.animate('money', gameState, '--'); 
+
+
+        }else{
+
+            this.animate('money', gameState, '++'); 
+
+        }
+
+        this.updateMemory('money', gameState);
+
+
+    }
+
     RenderPrint.prototype.checkMemory = function(partition, gameState){
 
         //Memory checks test for changes in the gameState compared to the last render memory saved.
@@ -185,6 +275,9 @@ function RenderPrint(){
         }
         else if(partition == 'stars'){
             if(!game.arrEqual(gameState, this.memory.stars)){ return false; /*no updated memory */}
+        }
+        else if(partition == 'money'){
+            if(gameState != this.memory.money){ return false; /*no updated memory */}
         }
         else{ return true; }
     }
@@ -196,6 +289,9 @@ function RenderPrint(){
         }
         else if(partition == 'stars'){
             this.memory.stars = gameState; 
+        }
+        else if(partition == 'money'){
+            this.memory.money = gameState;
         }
     }
 

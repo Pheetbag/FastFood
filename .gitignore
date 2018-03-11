@@ -1,0 +1,5 @@
+# VS Code workspace
+*.code-workspace
+
+# All templating documents
+templates/
