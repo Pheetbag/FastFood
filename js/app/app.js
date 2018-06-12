@@ -43,7 +43,7 @@ paint.draw(sketch, context);
 sketch  = paint.sketch(['div', 'span']);
 context = paint.getContext('ff-gamePrint-money');
 paint.draw(sketch, context);
-*/
+
 
 //------REACT FOR THE MENU
 
