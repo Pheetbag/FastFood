@@ -43,27 +43,73 @@ paint.draw(sketch, context);
 sketch  = paint.sketch(['div', 'span']);
 context = paint.getContext('ff-gamePrint-money');
 paint.draw(sketch, context);
-
+*/
 
 //------REACT FOR THE MENU
 
 
 
-var react = react('click');
+var react = react('click').do();
 var context = paint.getContext('ff-gameMenu-slot');
 
 for(let i = 0; i < context.length; i++){
 
+    //---CLICK
+
     reactive('mousedown')
-    .do(() => {
+    .do((rx) => {
 
-        //The reaction of the reactive, it can the reaction of its reactTree setting "true" after the definition of the function.
+        //rx is the shortcut for reactive
+        player.set('hand', rx);
+        console.info(scene.menu[rx.context.dataset.id]);
 
-    }, true)
+    })
     .use(context[i])
     .add(react)
 
+
+     //---HOVER IN
+    reactive('mouseenter')
+    .do((rx) => {
+
+        //rx is the shortcut for reactive
+        let context = rx.context;
+        let showboxContext = context.children[0];
+
+        sketch = paint.sketch(['div']);
+        paint.stroke(sketch, [['class', 'showBox']]);
+        console.log(sketch);
+        sketch[0].innerHTML = context.dataset.name + '       ' + context.dataset.desc;
+        paint.erase([showboxContext]);
+        paint.draw(sketch, [showboxContext]);
+
+    })
+    .use(context[i])
+    .add(react)
+
+
+    //---HOVER OUT
+    reactive('mouseleave')
+    .do((rx) => {
+
+        let context = rx.context;
+        let showboxContext = context.children[0];
+        paint.erase([showboxContext]);
+
+    })
+    .use(context[i])
+    .add(react)
 }
+
+reactive()
+.do((rx) => {
+
+    player.set('hand', 'delete');
+    console.log('delete action');
+})
+.use(paint.getContext('ff-gameMenu-delete')[0])
+.add(react)
+
 /*     
 
 OLD REACT SYNTAX
@@ -85,7 +131,7 @@ reactive.context = context[i];
 react.append(reactive);
 }
 
- */
+
 //---HOVER
 for(let i = 0; i < context.length; i++){
     reactive = new Reactive;
@@ -117,6 +163,8 @@ for(let i = 0; i < context.length; i++){
     react.append(reactive);
 }
 
+
+
 //---DELETE BTN
 reactive = new Reactive;
 reactive.reaction = function(reactive){
@@ -127,6 +175,7 @@ reactive.reaction = function(reactive){
 reactive.context = paint.getContext('ff-gameMenu-delete')[0];
 react.append(reactive);
 
+*/
 
 //initialize default assets
 assets.set(ff.defaultAsset);

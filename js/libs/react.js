@@ -24,6 +24,7 @@ function reactive(reactionary = 'inherit'){
 function ReactTree(){
 
     this.list = []; 
+    this.active = true;
     this.reactionary; 
     this.reactionInherit = false; 
 
@@ -39,6 +40,11 @@ function ReactTree(){
         }
 
         reactive.context.addEventListener(reactive.reactionary, () =>{
+
+            //If the reactTree is active = false, we do not set the reaction.
+            if(this.active == false){
+                return; 
+            }
 
             //we inherit the reaction from the reactTree is reactionInherit is true in the reactive
             if(reactive.reactionInherit == true){
@@ -63,6 +69,18 @@ function ReactTree(){
 
         this.reaction = reaction; 
         return this; 
+    }
+
+    this.switch = function(){
+
+        if(this.active == true){
+            
+            this.active = false
+        }else{
+            this.active = true
+        }
+
+        return this;
     }
 
 }
