@@ -1,0 +1,32 @@
+div{
+    height: 100%;
+
+}
+
+.container{
+    background-color: brown;
+    width: 1000px; 
+    padding: 20px 0;
+    height: 50px; 
+    display: flex; 
+
+}
+
+.one{
+    background-color: burlywood;
+}
+
+.two{
+    background-color: aquamarine;
+
+}
+
+.three{
+
+    background-color: teal;
+
+}
+
+.container div{
+    width: 33.33%;
+}

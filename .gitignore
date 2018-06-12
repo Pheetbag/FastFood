@@ -1,5 +1,6 @@
 # VS Code workspace
 *.code-workspace
+/.vscode
 
 # All templating documents
 templates/
