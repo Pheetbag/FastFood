@@ -19,6 +19,8 @@ function Flexbones(xMap){
 
    this.sketch = function(){
 
+	   this.x = document.createDocumentFragment();
+
       self = this;
       xMap = this.primitive;
 
@@ -96,51 +98,60 @@ function Flexbones(xMap){
       return this;
    }
 
-   this.contextualize = function(selector){
+   this.select = function(selector){
 
       context = document.querySelectorAll(selector);
-      this.context = context; 
+      this.context = context;
 
+      return this;
+   }
+
+   this.contextualize = function(context){
+
+      this.context = context;
       return this;
    }
 
    this.clear = function(){
 
-      context = this.context; 
+      context = this.context;
 
       for(let i = 0; i< context.length; i++){
 
             let tempContext = context[i];
-            let tempChilds = tempContext.children;
+            let tempChilds = tempContext.childNodes;
 
             for(let i; 0 < tempChilds.length; i){
 
                 tempContext.removeChild(tempChilds[0]);
-
             }
       }
+
+      return this;
    }
 
    this.bind = function(firstElement = false){
 
-      context = this.context; 
+        this.sketch();
 
-      if(firstElement === true){
+        context = this.context;
 
-            for (let i = 0; i < context.length; i++) {
-                  tempX = this.x.cloneNode(true); 
-                  this.context.insertBefore(tempX, this.context.firstChild);  
-            }
-      }else{
+        if(firstElement === true){
 
             for (let i = 0; i < context.length; i++) {
-                  tempX = this.x.cloneNode(true); 
-                  context[i].appendChild(tempX);        
+                  tempX = this.x.cloneNode(true);
+                  this.context.insertBefore(tempX, this.context.firstChild);
             }
-      }
-      
-      return this;
-   }
+        }else{
+
+            for (let i = 0; i < context.length; i++) {
+                  tempX = this.x.cloneNode(true);
+                  context[i].appendChild(tempX);
+            }
+        }
+
+        return this;
+        }
 }
 
 

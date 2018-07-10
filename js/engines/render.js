@@ -352,7 +352,7 @@ function RenderScene(){
             paint.stroke(tempContext, tempStroke);
 
             let tempBrush = new PaintBrush();
-            tempBrush.backgroundImage = game.assets[0].textureMap.item[gameState[i].texture];
+            tempBrush.backgroundImage = game.assets[config.defaultAsset].textureMap.item[gameState[i].texture];
             tempContext = context[i].children;
             paint.brush(tempContext, tempBrush);
         }
@@ -382,7 +382,7 @@ function RenderScene(){
             let tempSketch = paint.sketch(['div']);
             let tempBrush = new PaintBrush();
 
-            tempBrush.backgroundImage = game.assets[0].textureMap.item[ (scene.menu[gameState[i].context.dataset.id].texture)];
+            tempBrush.backgroundImage = game.assets[config.defaultAsset].textureMap.item[ (scene.menu[gameState[i].context.dataset.id].texture)];
             paint.brush(tempSketch, tempBrush);
 
             paint.draw(tempSketch, context);

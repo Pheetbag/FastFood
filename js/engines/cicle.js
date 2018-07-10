@@ -77,6 +77,11 @@ function cicleUpdate(){
             render.scene.hand(game.state.player.hand);
         }
     
+        //Generate clients
+
+        if(client.evaluate() == true){
+            client.new();
+        }
 
         
 

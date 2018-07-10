@@ -1,49 +1,55 @@
 
-//global object "client". control all client actions. 
+//global object "client". control all client actions.
 function ClientController(){
 
-    this.timeSpacing;
-    this.maxQuantity;
-    this.minQuantity; 
-    this.quantity;
+
+   //This take all param values from the config object, so any change you wants to make in the generation engine should be made in the config object.
+
+    this.quantity = 0;
     this.totalQuantity;
     this.lastGeneration;
 
-    this.maxPatience;
-    this.minPatience;
-
-    //random chance of generation after cooldown for generation is ended.
-    this.random;
-    this.randomChance;
-
-    //whishes
-    this.maxWishQuantity;
-    this.minWishQuantity;
-    this.wishSauce;
-
     //array with the list of active clients.
-    this.list = [];
+    this.list = [null, null, null, null];
 
-    ClientController.prototype.new = function(){
+    this.new = function(){
 
         //create a new client after making the evaluation, this is activated by the game cicle.
 
+        this.list[this.quantity] = new Client;
+        this.quantity++;
+        this.lastGeneration = cicle.current;
+        console.log(this.list[this.quantity - 1]);
     }
 
-    ClientController.prototype.evaluate = function(){
-        //this evaluate if a new client can be generate
+    this.evaluate = function(){
+
+      if(this.quantity >= config.clientMaxQuantity){ 
+        return false; }
+
+      if((cicle.current - this.lastGeneration) < config.clientTimeSpacing){
+          return false;
+      }
+      if(tools.random(0, 100) > config.clientRandomChance && config.clientRandom == true){
+
+        this.lastGeneration = cicle.current;
+        return false;
+      }
+
+      return true;
     }
 
 }
 
 function Client(){
 
-    this.id; 
-    this.level; 
-    this.state = 'waiting'; 
+    //id will work todefine what kind of client we generate,so it will refer to the asset defining the texture.
+    this.id =  tools.random(0, 26);
+    this.level = game.level;
+    this.state = 'waiting';
 
-    this.face;
-    this.patience; 
+    this.face = game.assets[config.defaultAsset].textureMap.client[this.id];
+    this.patience = tools.random(config.clientMinPatience, config.clientMaxPatience);
 
     this.wish = new ClientWish;
 

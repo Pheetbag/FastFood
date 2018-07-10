@@ -37,6 +37,37 @@ ff.defaultTextures = function(){
     defaultTextures.item.push('url(resources/food_ico/pancakes.png)');
     defaultTextures.item.push('url(resources/food_ico/salami.png)');
 
+    defaultTextures.client.push('url(resources/client_ico/client1.png)');
+    defaultTextures.client.push('url(resources/client_ico/client2.png)');
+    defaultTextures.client.push('url(resources/client_ico/client3.png)');
+    defaultTextures.client.push('url(resources/client_ico/client4.png)');
+    defaultTextures.client.push('url(resources/client_ico/client5.png)');
+    defaultTextures.client.push('url(resources/client_ico/client6.png)');
+    defaultTextures.client.push('url(resources/client_ico/client7.png)');
+    defaultTextures.client.push('url(resources/client_ico/client8.png)');
+    defaultTextures.client.push('url(resources/client_ico/client9.png)');
+    defaultTextures.client.push('url(resources/client_ico/client10.png)');
+
+    defaultTextures.client.push('url(resources/client_ico/client11.png)');
+    defaultTextures.client.push('url(resources/client_ico/client12.png)');
+    defaultTextures.client.push('url(resources/client_ico/client13.png)');
+    defaultTextures.client.push('url(resources/client_ico/client14.png)');
+    defaultTextures.client.push('url(resources/client_ico/client15.png)');
+    defaultTextures.client.push('url(resources/client_ico/client16.png)');
+    defaultTextures.client.push('url(resources/client_ico/client17.png)');
+    defaultTextures.client.push('url(resources/client_ico/client18.png)');
+    defaultTextures.client.push('url(resources/client_ico/client19.png)');
+    defaultTextures.client.push('url(resources/client_ico/client20.png)');
+
+    defaultTextures.client.push('url(resources/client_ico/client21.png)');
+    defaultTextures.client.push('url(resources/client_ico/client22.png)');
+    defaultTextures.client.push('url(resources/client_ico/client23.png)');
+    defaultTextures.client.push('url(resources/client_ico/client24.png)');
+    defaultTextures.client.push('url(resources/client_ico/client25.png)');
+    defaultTextures.client.push('url(resources/client_ico/client26.png)');
+    defaultTextures.client.push('url(resources/client_ico/client27.png)');
+
+
     return defaultTextures;
 
 }

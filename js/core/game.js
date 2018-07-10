@@ -17,20 +17,16 @@ function Game(){
         },
 
         scene: {
-            menu: [],
-            hand: []
+            menu   : [],
+            hand   : [],
+            client : []
         }
 
     };
 
-    this.assets = {
+	this.assets = [];
 
-      itemSet    : [],
-      textureMap : [],
-      playsound  : []
-   }
-
-   this.assets = [];
+	//TODO Is important to note that this have to be moved from here, the use of components is deprecated in the code, so now we have to create a way to refers to all components  (this is deprecated because the system now have assets for it) But right now it do not support the components or similar (also check where components are used)
 
     this.component = new Component;
 
@@ -53,4 +49,120 @@ function Scene(){
         //update the gamestate;
         game.state.scene.menu = this.menu;
     }
+
+	this.setup = function(){
+
+		let xMap = [
+		    {x: 'div'},
+		    {x: 'div'},
+		    {x: 'div'},
+		    {x: 'div'},
+		    {x: 'div'},
+		    {x: 'div'}
+		];
+		flexbones(xMap)
+		   .select('.ff-gamePrint-hearts, .ff-gamePrint-stars')
+		   .bind();
+
+		xMap = [
+		    {x:'div'},
+		    {x:'span'}
+		];
+		flexbones(xMap)
+		   .select('.ff-gamePrint-money')
+		   .bind();
+
+	   	let reactTree = react('click').do();
+	  	let context = paint.getContext('ff-gameMenu-slot');
+
+	  	for(let i = 0; i < context.length; i++){
+
+	       //---CLICK
+
+	       reactive('mousedown')
+	       .do((rx) => {
+
+	           //rx is the shortcut for reactive
+	           player.set('hand', rx);
+	           console.info(scene.menu[rx.context.dataset.id]);
+
+
+	       })
+	       .use(context[i])
+	       .add(reactTree)
+
+
+	        //---HOVER IN
+	       reactive('mouseenter')
+	       .do((rx) => {
+
+	           //rx is the shortcut for reactive
+	           let context = rx.context;
+	           let showboxContext = context.children[0];
+			   console.log(showboxContext);
+			   			   console.log('showboxContext');
+	           let xMap = [
+	               [
+	               {x: 'div', class: 'showBox'},
+	                   [
+	                   {x: 'p', class: 'title'},
+	                       context.dataset.name
+	                   ],
+	                   [
+	                   {x: 'p', class: 'desc'},
+	                       context.dataset.desc
+	                   ],
+	                   [
+	                   {x: 'p', class: 'cost'},
+	                       context.dataset.cost
+	                   ],
+	                   [
+	                   {x: 'p', class: 'price'},
+	                       ('+' + context.dataset.price)
+	                   ],
+	               ]
+	           ];
+	           var foo = flexbones(xMap)
+	               .sketch()
+	               .contextualize([showboxContext])
+	               .clear()
+	               .bind();
+
+				 //TODO REMOVE THIS FROM THE REACTTREE AFTER USING IT OR CREATE A NEW REACT TREE A CLEAR IT EVERYTIME
+			   reactive('mousedown')
+			   .do((rx) =>{
+
+				   flexbones().contextualize(context.children).clear();
+
+			   })
+			   .use(showboxContext.children[0])
+			   .add(reactTree)
+
+	       })
+	       .use(context[i])
+	       .add(reactTree)
+
+
+	       //---HOVER OUT
+	       reactive('mouseleave')
+	       .do((rx) => {
+
+	           let context = rx.context.children[0];
+	           flexbones().contextualize([context]).clear();
+x
+	       })
+	       .use(context[i])
+	       .add(reactTree)
+	   }
+
+	   reactive()
+	   .do((rx) => {
+
+	       player.set('hand', 'delete');
+	       console.log('delete action');
+	   })
+	   .use(paint.getContext('ff-gameMenu-delete')[0])
+	   .add(reactTree)
+
+	}
 }

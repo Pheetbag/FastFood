@@ -10,8 +10,6 @@ function Assets(){
     this.itemSet    = itemSet;
     this.textureMap = textureMap;
     this.clientSet  = clientSet;
-
-    this.texture   = this.textureMap;
    }
 
    this.item = function(extID){
@@ -39,7 +37,7 @@ function Assets(){
 
    this.set = function(asset){
 
-     game.assets.push(asset);
+    game.assets.push(asset);
   }
 }
 
