@@ -7,3 +7,5 @@
 
 # All templating documents
 templates/
+
+node_modules/
