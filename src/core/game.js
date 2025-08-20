@@ -149,7 +149,6 @@ function Scene(){
 
 	           let context = rx.context.children[0];
 	           flexbones().contextualize([context]).clear();
-x
 	       })
 	       .use(context[i])
 	       .add(reactTree)
