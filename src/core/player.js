@@ -69,7 +69,7 @@ function Player(){
                 return; }
 
             //add the item
-            costo = value.context.dataset.cost;
+            const costo = value.context.dataset.cost;
             this.hand.push(value);
             player.set('money', costo);
 

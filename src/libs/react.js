@@ -59,18 +59,21 @@ function ReactTree(){
         return(this.list.push(reactive) - 1);
     }
 
+    /** @type any */
     this.set = function(reactionary){
 
         this.reactionary = reactionary;
         return this;
     }
 
+    /** @type any */
     this.do = function(reaction = ()=>{}){
 
         this.reaction = reaction;
         return this;
     }
 
+    /** @type any */
     this.switch = function(){
 
         if(this.active == true){
@@ -93,12 +96,14 @@ function Reactive(){
     this.reaction = null;
     this.reactionInherit = false;
 
+    /** @type any */
     this.set = function(reactionary){
 
         this.reactionary = reactionary;
         return this;
     }
 
+    /** @type any */
     this.do = function(reaction, forceInheritance = false){
 
         this.reactionInherit = forceInheritance;
@@ -106,12 +111,14 @@ function Reactive(){
         return this;
     }
 
+    /** @type any */
     this.use = function(context){
 
         this.context = context;
         return this;
     }
 
+    /** @type any */
     this.add = function(reactTree){
 
         //this take the reactTree and use its append method, sending the object inself as param

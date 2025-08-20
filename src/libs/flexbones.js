@@ -5,8 +5,7 @@ function flexbones(xMap){
 
    if(!Array.isArray(xMap)){ xMap = [xMap]; }
 
-   flexObject = new Flexbones(xMap);
-   return flexObject;
+   return new Flexbones(xMap);
 }
 
 function Flexbones(xMap){
@@ -17,6 +16,7 @@ function Flexbones(xMap){
 
    this.copy = null;
 
+    /** @type any */
    this.sketch = function(){
 
 	   this.x = document.createDocumentFragment();
@@ -27,8 +27,7 @@ function Flexbones(xMap){
       for (var i = 0; i < xMap.length; i++) {
 
          //This is an item of the matrix it can be an xObject or an treeArray
-         xMapItem = xMap[i];
-         evalArrayItem(xMapItem);
+         evalArrayItem(xMap[i]);
       }
 
       //This take care of detect if a matrix item is an xObject or a TreeArray, in case is a TreeArray call the corresponding functions
@@ -49,11 +48,12 @@ function Flexbones(xMap){
       function xObjectAction(xObject, parent = self.x){
 
          let type = typeof xObject;
+         let element;
          if(type === 'string' || type === 'number' || type === 'boolean'){
             element = document.createTextNode(xObject);
          }else if (typeof xObject === 'object'){
 
-            xObjectCreate(xObject);
+            element = xObjectCreate(xObject);
          }
          parent.appendChild(element);
       }
@@ -68,11 +68,11 @@ function Flexbones(xMap){
          }
 
          //We use treeArray[0] for creating the parent object that will contain all others
-         tempParent = xObjectCreate(treeArray[0]);
+         let tempParent = xObjectCreate(treeArray[0]);
 
          for (var i = 1; i < treeArray.length; i++) {
 
-            item = treeArray[i];
+            const item = treeArray[i];
             evalArrayItem(item, tempParent);
 
          }
@@ -84,8 +84,8 @@ function Flexbones(xMap){
 
       function xObjectCreate(xObject){
 
-            properties = Object.entries(xObject);
-            element = document.createElement(xObject.x);
+            const properties = Object.entries(xObject);
+            const element = document.createElement(xObject.x);
 
             for (var i = 0; i < properties.length; i++) {
 
@@ -98,14 +98,15 @@ function Flexbones(xMap){
       return this;
    }
 
+    /** @type any */
    this.select = function(selector){
 
-      context = document.querySelectorAll(selector);
-      this.context = context;
+      this.context = document.querySelectorAll(selector);
 
       return this;
    }
 
+    /** @type any */
    this.contextualize = function(context){
 
       this.context = context;
@@ -114,7 +115,7 @@ function Flexbones(xMap){
 
    this.clear = function(){
 
-      context = this.context;
+      const context = this.context;
 
       for(let i = 0; i< context.length; i++){
 
@@ -134,7 +135,7 @@ function Flexbones(xMap){
 
         this.sketch();
 
-        context = this.context;
+        const context = this.context;
 
         if(firstElement === true){
 
@@ -145,7 +146,7 @@ function Flexbones(xMap){
         }else{
 
             for (let i = 0; i < context.length; i++) {
-                  tempX = this.x.cloneNode(true);
+                  const tempX = this.x.cloneNode(true);
                   context[i].appendChild(tempX);
             }
         }

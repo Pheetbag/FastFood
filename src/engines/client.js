@@ -12,6 +12,7 @@ function ClientController(){
     //array with the list of active clients.
     this.list = [null, null, null, null];
 
+    /** @type any */
     this.new = function(){
 
         //create a new client after making the evaluation, this is activated by the game cicle.
@@ -22,6 +23,7 @@ function ClientController(){
         console.log(this.list[this.quantity - 1]);
     }
 
+    /** @type any */
     this.evaluate = function(){
 
       if(this.quantity >= config.clientMaxQuantity){ 

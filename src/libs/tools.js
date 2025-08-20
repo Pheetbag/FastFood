@@ -1,5 +1,5 @@
 
-tools = new Object; 
+var tools = new Object;
 
 tools.random = function(a,b){
     return Math.round(Math.random()*(b-a)+parseInt(a));

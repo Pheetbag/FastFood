@@ -32,6 +32,7 @@ function RenderX(){
 		this.renderables.push(renderable);
 	}
 
+	/** @type any */
 	this.Renderable  = function(){
 
 		this.metadata 	= {
@@ -63,6 +64,6 @@ function RenderX(){
 
 var RenderX = new RenderX;
 
-data = renderX().listenTo();
+var data = renderX().listenTo();
 
 console.log(data);
