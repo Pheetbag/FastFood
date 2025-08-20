@@ -48,7 +48,7 @@ function Render(){
 
 function RenderAnimate(){
 
-    this.hearts = function(context, effect, gameState, memory, duration = 0, delay = 0, static = false){
+    this.hearts = function(context, effect, gameState, memory, duration = 0, delay = 0, isStatic = false){
         setTimeout(function(){
         let tempChilds = context.children;
 
@@ -69,7 +69,7 @@ function RenderAnimate(){
             }
         }
         //return everything to normal state after duration
-        if(static == false){
+        if(isStatic == false){
             setTimeout(function(){
                 for (let i = 0; i < gameState.length; i++) {
                     tempChilds[i].style.backgroundImage = "url(" + game.component.hearts[ gameState[i] ] + ")";
@@ -79,7 +79,7 @@ function RenderAnimate(){
         }, delay);
     }
 
-    this.stars = function(context, effect, gameState, memory, duration = 0, delay = 0, static = false){
+    this.stars = function(context, effect, gameState, memory, duration = 0, delay = 0, isStatic = false){
         setTimeout(function(){
         let tempChilds = context.children;
 
@@ -113,7 +113,7 @@ function RenderAnimate(){
             }
         }
         //return everything to normal state after duration
-        if(static == false){
+        if(isStatic == false){
             setTimeout(function(){
                 for (let i = 0; i < gameState.length; i++) {
                     tempChilds[i].style.backgroundImage = "url(" + game.component.stars[gameState[i]] + ")";
@@ -123,7 +123,7 @@ function RenderAnimate(){
         }, delay);
     };
 
-    this.money = function(context, effect, gameState, memory, duration = 0, delay = 0, static = false){
+    this.money = function(context, effect, gameState, memory, duration = 0, delay = 0, isStatic = false){
 
         let tempChilds = context.children;
         let tempChange = gameState - memory;
@@ -157,7 +157,7 @@ function RenderAnimate(){
             }, 0);
         }
     }
-    this.hand = function(context, effect, gameState, memory, duration = 0, delay= 0, static = false){
+    this.hand = function(context, effect, gameState, memory, duration = 0, delay= 0, isStatic = false){
         setTimeout(function(){
 
             if(effect == 'fill'){
@@ -177,7 +177,7 @@ function RenderAnimate(){
                 paint.brush(context, tempBrush);
             }
             //return everything to normal after duration
-            if(static == false){
+            if(isStatic == false){
                 setTimeout(function(){
                     let tempBrush = new PaintBrush();
                     tempBrush.backgroundColor = 'rgba(255, 255, 255, .5)';
@@ -217,7 +217,7 @@ function RenderPrint(){
         if(render.state == 'false' || this.state == 'false'){return;}
 
         gameState = render.map(gameState, 6);
-        context = paint.getContext('ff-gamePrint-hearts');
+        const context = paint.getContext('ff-gamePrint-hearts');
         for(let i = 0; i < context.length; i++){
             render.animate.hearts(context[i], 'fill', gameState, this.memory.hearts,100);
             render.animate.hearts(context[i], 'outline', gameState, this.memory.hearts,100,200);
@@ -227,15 +227,13 @@ function RenderPrint(){
 
     }
     RenderPrint.prototype.stars = function(gameState){
-
-        tempThis = this;
         //if false do not render
         if(render.state == 'false' || this.state == 'false'){return;}
 
         gameState = render.map(gameState, 6);
-        context = paint.getContext('ff-gamePrint-stars');
+        const context = paint.getContext('ff-gamePrint-stars');
 
-        if(!game.arrEqual(this.memory.stars, gameState, '>')){
+        if(!tools.arrEqual(this.memory.stars, gameState, '>')){
             for(let i = 0; i < context.length; i++){
                 render.animate.stars(context[i], 'fill', gameState, this.memory.stars, 100, 0, true);
                 render.animate.stars(context[i], 'rainbow', gameState, this.memory.stars, 500,200);
@@ -255,7 +253,7 @@ function RenderPrint(){
         //if false do not render
         if(render.state == 'false' || this.state == 'false'){return;}
 
-        context = paint.getContext('ff-gamePrint-money');
+        const context = paint.getContext('ff-gamePrint-money');
         for(let i = 0; i < context.length; i++){
 
             let childs = context[i].children;
@@ -281,7 +279,7 @@ function RenderPrint(){
         //if false do not render
         if(render.state == 'false' || this.state == 'false'){return;}
 
-        context = paint.getContext('ff-gamePrint-name');
+        const context = paint.getContext('ff-gamePrint-name');
         for(let i = 0; i < context.length; i++){
 
         context[i].innerHTML = gameState;
@@ -335,7 +333,7 @@ function RenderScene(){
         //if false do not render
         if(render.state == 'false' || this.state == 'false'){return;}
 
-        context = paint.getContext('ff-gameMenu-slot');
+        const context = paint.getContext('ff-gameMenu-slot');
 
         for(let i = 0; i < context.length; i++){
 

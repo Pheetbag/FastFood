@@ -4,7 +4,9 @@ function Assets(){
 
    this.uID = 0;
    this.setuID = function(){ return this.uID++; }
-
+    /**
+     * @type any
+     */
    this.object = function(itemSet, textureMap = [], clientSet = []){
 
     this.itemSet    = itemSet;
@@ -12,6 +14,9 @@ function Assets(){
     this.clientSet  = clientSet;
    }
 
+    /**
+     * @type any
+     */
    this.item = function(extID){
 
       this.uID   = assets.setuID();
@@ -28,7 +33,9 @@ function Assets(){
 
       this.consumable = false;
    }
-
+    /**
+     * @type any
+     */
    this.textureMap = function(){
 
       this.item   = [];
