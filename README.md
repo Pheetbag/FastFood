@@ -1,5 +1,22 @@
 # FastFood
-**FastFood** is an explorative experiment into web tecnologies for interactivity, the game is based in *javascript* and do not include any library or framework. The game also implies a code hierarchy and organization keeping the abstraction for more escalability, OOP is being implemented in the code, for more efficiency.
+
+**FastFood** is an explorative experiment into web tecnologies for interactivity, the game is based in *javascript* and
+do not include any library or framework. The game also implies a code hierarchy and organization keeping the abstraction
+for more escalability, OOP is being implemented in the code, for more efficiency.
+
+## August 2025 update: 
+
+This is a very endeared project I used as an exploration of web technologies, working on creating interactivity and 
+keeping it in pure javascript to become familiar with core concepts. This also helped me develop my skills for problem 
+solving even if this included reinventing the wheel. Is, at it's the core, a learning and fun experiment reflecting the
+excitement and curiosity of my early days.
+
+I'm now taking the mission of continue development of this project under the same spirit of fun and curiosity, including
+implementing my own version of topics, just as a way of expanding my perspective on problem-solving out of the 
+conventional frameworks and libraries mindset. 
+
+It shouldn't be taken as a reflection of best practices or modern standards (although I'm planning to bring a lot of that
+slowly into the codebase too) as this wouldn't reflect any approach I would take in a real world production project. 
 
 
 ## Licensing information

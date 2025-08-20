@@ -2,5 +2,8 @@
 *.code-workspace
 /.vscode
 
+# intelliJ IDEA
+.idea
+
 # All templating documents
 templates/
