@@ -50,7 +50,7 @@ function preloader(gameElements) {
 
     function preloadNextImage() {
 
-        preloaderBox.setAttribute('src','resources/' + preloadElement[elementTrack]+'.png');
+        preloaderBox.setAttribute('src','assets/' + preloadElement[elementTrack]+'.png');
 
         preloaderBox.addEventListener('load',imagePreloaded);
 
@@ -307,33 +307,33 @@ var gameComponentsPause = document.getElementById('ff-gameComponentPause');
 
 //GameObjects se diferencian de los gameComponents en que son datos de recurso para el juego, más no elementos o componentes directos representados.
 var gameObjectsClient = [
-    'resources/client_ico/client1.png',
-    'resources/client_ico/client2.png',
-    'resources/client_ico/client3.png',
-    'resources/client_ico/client4.png',
-    'resources/client_ico/client5.png',
-    'resources/client_ico/client6.png',
-    'resources/client_ico/client7.png',
-    'resources/client_ico/client8.png',
-    'resources/client_ico/client9.png',
-    'resources/client_ico/client10.png',
-    'resources/client_ico/client11.png',
-    'resources/client_ico/client12.png',
-    'resources/client_ico/client13.png',
-    'resources/client_ico/client14.png',
-    'resources/client_ico/client15.png',
-    'resources/client_ico/client16.png',
-    'resources/client_ico/client17.png',
-    'resources/client_ico/client18.png',
-    'resources/client_ico/client19.png',
-    'resources/client_ico/client20.png',
-    'resources/client_ico/client21.png',
-    'resources/client_ico/client22.png',
-    'resources/client_ico/client23.png',
-    'resources/client_ico/client24.png',
-    'resources/client_ico/client25.png',
-    'resources/client_ico/client26.png',
-    'resources/client_ico/client27.png',
+    'assets/client_ico/client1.png',
+    'assets/client_ico/client2.png',
+    'assets/client_ico/client3.png',
+    'assets/client_ico/client4.png',
+    'assets/client_ico/client5.png',
+    'assets/client_ico/client6.png',
+    'assets/client_ico/client7.png',
+    'assets/client_ico/client8.png',
+    'assets/client_ico/client9.png',
+    'assets/client_ico/client10.png',
+    'assets/client_ico/client11.png',
+    'assets/client_ico/client12.png',
+    'assets/client_ico/client13.png',
+    'assets/client_ico/client14.png',
+    'assets/client_ico/client15.png',
+    'assets/client_ico/client16.png',
+    'assets/client_ico/client17.png',
+    'assets/client_ico/client18.png',
+    'assets/client_ico/client19.png',
+    'assets/client_ico/client20.png',
+    'assets/client_ico/client21.png',
+    'assets/client_ico/client22.png',
+    'assets/client_ico/client23.png',
+    'assets/client_ico/client24.png',
+    'assets/client_ico/client25.png',
+    'assets/client_ico/client26.png',
+    'assets/client_ico/client27.png',
 
 
 ];

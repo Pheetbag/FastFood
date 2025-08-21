@@ -39,7 +39,7 @@
     width: 130px;
     height: 30px;
 
-    background-image: url(../resources/ui_ico/coin.png);
+    background-image: url(/assets/ui_ico/coin.png);
     background-position: left;
     background-size: contain;
     background-repeat: no-repeat;
@@ -48,7 +48,7 @@
 .titleShop{
     text-align: center;
 
-    background-image: url(../resources/various/titleBanner.png); 
+    background-image: url(/assets/various/titleBanner.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
