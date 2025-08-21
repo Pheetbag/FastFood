@@ -12,7 +12,7 @@ var toRender_patience = false;
 function render_printHeart(){
 
     for(i = 0; i < printState_heart; i){
-        gameComponentsHeart[i].style.backgroundImage = 'url(resources/gameGeneral_ico/heart_active.png)';
+        gameComponentsHeart[i].style.backgroundImage = 'url(assets/gameGeneral_ico/heart_active.png)';
         
         if(i == 5){
             break;
@@ -27,7 +27,7 @@ function render_printHeart(){
 
         for(i = 6; i < printState_heart; i++){
 
-            gameComponentsHeart[e].style.backgroundImage = 'url(resources/gameGeneral_ico/heart_extra.png)';
+            gameComponentsHeart[e].style.backgroundImage = 'url(assets/gameGeneral_ico/heart_extra.png)';
 
             e++;
 
@@ -37,7 +37,7 @@ function render_printHeart(){
     if(printState_heart < 6){
 
         for(i = printState_heart; i < 6; i++){
-            gameComponentsHeart[i].style.backgroundImage = 'url(resources/gameGeneral_ico/heart_dead.png)';
+            gameComponentsHeart[i].style.backgroundImage = 'url(assets/gameGeneral_ico/heart_dead.png)';
         
         }
         
@@ -48,7 +48,7 @@ function render_printHeart(){
 function render_printStar(){
 
     for(i = 0; i < printState_star; i){
-            gameComponentsStar[i].style.backgroundImage = 'url(resources/gameGeneral_ico/star1.png)';
+            gameComponentsStar[i].style.backgroundImage = 'url(assets/gameGeneral_ico/star1.png)';
             
         if(i == 5){
             break;
@@ -64,7 +64,7 @@ function render_printStar(){
 
             if(i < 12){
 
-                gameComponentsStar[e].style.backgroundImage = 'url(resources/gameGeneral_ico/star2.png)';
+                gameComponentsStar[e].style.backgroundImage = 'url(assets/gameGeneral_ico/star2.png)';
             }
 
             e++;
@@ -79,7 +79,7 @@ function render_printStar(){
 
             if(i < 18){
 
-            gameComponentsStar[e].style.backgroundImage = 'url(resources/gameGeneral_ico/star3.png)';
+            gameComponentsStar[e].style.backgroundImage = 'url(assets/gameGeneral_ico/star3.png)';
             }
             e++;
 
@@ -92,7 +92,7 @@ function render_printStar(){
         for(i = 18; i < printState_star; i++){
 
             if(i < 24){
-            gameComponentsStar[e].style.backgroundImage = 'url(resources/gameGeneral_ico/star4.png)';
+            gameComponentsStar[e].style.backgroundImage = 'url(assets/gameGeneral_ico/star4.png)';
             e++;
             }
 
@@ -105,7 +105,7 @@ function render_printStar(){
         for(i = 24; i < printState_star; i++){
 
             if(i < 30){
-            gameComponentsStar[e].style.backgroundImage = 'url(resources/gameGeneral_ico/star5.png)';
+            gameComponentsStar[e].style.backgroundImage = 'url(assets/gameGeneral_ico/star5.png)';
             e++;
             }
                 
@@ -115,7 +115,7 @@ function render_printStar(){
     if(printState_star < 6){
 
         for(i = printState_star; i < 6; i++){
-            gameComponentsStar[i].style.backgroundImage = 'url(resources/gameGeneral_ico/star0.png)';
+            gameComponentsStar[i].style.backgroundImage = 'url(assets/gameGeneral_ico/star0.png)';
         
         }
         
@@ -216,7 +216,7 @@ function doRender_clientWish(render_clientWish, inRender_client,render_wishState
             //This define temporaly a variable with the value of background to be display when wish defined in the div attribute, to be use in the visual render.
             let bgWishDisplay = inRender_client[i].getAttribute('bg-display');
 
-            render_clientWish[i].style.backgroundImage = 'url(resources/'+ bgWishDisplay + ')';
+            render_clientWish[i].style.backgroundImage = 'url(assets/'+ bgWishDisplay + ')';
             
             //this verified if the wish has been served to the client, so render it the right way
             if(render_wishState[i] == 'served'){
@@ -237,7 +237,7 @@ function doRender_clientSauce(render_clientSauce, inRender_client, render_wishSt
     //This define temporaly a variable with the value of background to be display when wish defined in the div attribute, to be use in the visual render.
     let bgSauceDisplay = inRender_client[4].getAttribute('bg-display');
 
-    render_clientSauce.style.backgroundImage = 'url(resources/'+ bgSauceDisplay + ')';
+    render_clientSauce.style.backgroundImage = 'url(assets/'+ bgSauceDisplay + ')';
 
     //this verified if the sauce has been served to the client, so render it the right way
     if(render_wishState[4] == 'served'){

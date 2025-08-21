@@ -66,14 +66,14 @@ body, html{
 }
 
 .btn-close{
-    background-image: url(../resources/ui_ico/closeico.png);
+    background-image: url(/assets/ui_ico/closeico.png);
     background-size: 15px; 
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .btn-pause{
-    background-image: url(../resources/ui_ico/pause.png);
+    background-image: url(/assets/ui_ico/pause.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 15px;

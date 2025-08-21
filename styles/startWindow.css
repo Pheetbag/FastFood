@@ -30,7 +30,7 @@
 
         margin: 20px auto;
 
-        background-image: url(../resources/logo/logo_bnr.png);
+        background-image: url(/assets/logo/logo_bnr.png);
     }
 
     .inputUsername{
@@ -77,7 +77,7 @@
         min-width: 528px;
         height: 210px;
 
-        background-image: url(../resources/various/startPage_bgDecoration.png);
+        background-image: url(/assets/various/startPage_bgDecoration.png);
         background-size: contain;
         background-repeat: no-repeat;
         background-position-y: bottom;
