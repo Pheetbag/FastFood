@@ -1,112 +1,112 @@
-
 /* START WINDOW FORMATING */
-#windowStart{
-    display: none;
-    background-color: #000d13;
-    z-index: 3; 
+#windowStart {
+  display: none;
+  background-color: #000d13;
+  z-index: 3;
 }
 
-    .startPanel{
-        background: #278eb3;
-        background: radial-gradient(ellipse at center, #278eb3 0%, #00425c 100%);
-        border: 1px solid #5597ad;
+.startPanel {
+  background: #278eb3;
+  background: radial-gradient(ellipse at center, #278eb3 0%, #00425c 100%);
+  border: 1px solid #5597ad;
 
-        display: block;
+  display: block;
 
-        width: 70%;
-        max-width: 700px;
-        min-width: 530px;
-        height: 100%;
-        
-        margin: auto;
+  width: 70%;
+  max-width: 700px;
+  min-width: 530px;
+  height: 100%;
 
-        text-align: center; 
-        
-    }
+  margin: auto;
 
-    .gameLogo{
-        width: 294px;
-        height: 128px;
+  text-align: center;
+}
 
-        margin: 20px auto;
+.gameLogo {
+  width: 294px;
+  height: 128px;
 
-        background-image: url(/assets/logo/logo_bnr.png);
-    }
+  margin: 20px auto;
 
-    .inputUsername{
-        color: white;
-        background-color: #00425c8f;
+  background-image: url(/assets/logo/logo_bnr.png);
+}
 
-        border: 1px solid #5597ad;
-        border-radius: 7px;
-        padding: 8px;
+.inputUsername {
+  color: white;
+  background-color: #00425c8f;
 
-        width:250px;
+  border: 1px solid #5597ad;
+  border-radius: 7px;
+  padding: 8px;
 
-        font-weight: 700;
-        font-family: sans-serif; 
+  width: 250px;
 
-        box-shadow: 0px 0px 20px 1px rgba(153,205,250,0.2);
-    }
+  font-weight: 700;
+  font-family: sans-serif;
 
-    .inputUsername::placeholder{
-        color: rgba(255, 255, 255, 0.452);
-        text-align: center;
-    }
+  box-shadow: 0px 0px 20px 1px rgba(153, 205, 250, 0.2);
+}
 
-    .division{
-        border: 1px solid #0d6086a6;
-        width: 70%;
-        margin: 20px auto 0px;
-    }
+.inputUsername::placeholder {
+  color: rgba(255, 255, 255, 0.452);
+  text-align: center;
+}
 
+.division {
+  border: 1px solid #0d6086a6;
+  width: 70%;
+  margin: 20px auto 0px;
+}
 
-    .instructionBox{
-        font-family: 'Roboto', sans-serif;
-        margin: 0px 40px 15px;
-        padding: 10px;
-        padding-top: 0px;
-        max-height: 50%; 
-        overflow: scroll;
-        overflow-x: hidden;
-    }
+.instructionBox {
+  font-family: "Roboto", sans-serif;
+  margin: 0px 40px 15px;
+  padding: 10px;
+  padding-top: 0px;
+  max-height: 50%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
 
-    .bgDecoration{
-        width: 69.7%;
-        max-width: 698px;
-        min-width: 528px;
-        height: 210px;
+.bgDecoration {
+  width: 69.7%;
+  max-width: 698px;
+  min-width: 528px;
+  height: 210px;
 
-        background-image: url(/assets/various/startPage_bgDecoration.png);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position-y: bottom;
+  background-image: url(/assets/various/startPage_bgDecoration.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: bottom;
 
-        position: absolute;
-        bottom: 0px;
-    }
+  position: absolute;
+  bottom: 0px;
+}
 
-    .startGameSec{
-        position: absolute;
-        bottom: 0px;
+.startGameSec {
+  position: absolute;
+  bottom: 0px;
 
-        width: 69.8%;
-        max-width: 698px;
-        min-width: 528px;
-    }
+  width: 69.8%;
+  max-width: 698px;
+  min-width: 528px;
+}
 
-    .btn-startGame{
-        height: 55px;
-        width: 250px;
-        font-family: 'Erica One', cursive; 
-        margin: 45px auto;
-    
-    }
+.btn-startGame {
+  height: 55px;
+  width: 250px;
+  font-family: "Erica One", cursive;
+  margin: 45px auto;
+}
 
-    .btn-green{
-        box-shadow: 0px 0px 35px 10px rgba(223,255,212,0.34);
-    }
+.btn-green {
+  box-shadow: 0px 0px 35px 10px rgba(223, 255, 212, 0.34);
+}
 
-    .btn-gray{
-        text-shadow: -2px -2px 1px #111111, 2px 2px 1px #111, -2px 2px 1px #111, 2px -2px 1px #111;
-    }
+.btn-gray {
+  text-shadow:
+    -2px -2px 1px #111111,
+    2px 2px 1px #111,
+    -2px 2px 1px #111,
+    2px -2px 1px #111;
+}

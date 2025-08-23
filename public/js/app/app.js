@@ -2,10 +2,10 @@
 //Init.js takes cares of initialize all major variables, set all the reactive and the corresponding reaction, so the game can work just fine. After the init.js is executed
 
 //We initialize the core objects of the game.
-game   = new Game;
-cicle  = new Cicle;
-player = new Player;
-scene  = new Scene;
-paint  = new Paint;
-render = new Render;
-client = new ClientController;
+game = new Game();
+cicle = new Cicle();
+player = new Player();
+scene = new Scene();
+paint = new Paint();
+render = new Render();
+client = new ClientController();

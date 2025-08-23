@@ -1,160 +1,139 @@
 //Flexbones is an experimental engine that take cares of drawing elements into the game canvas, using a context for it.
 //This engine will work distint to the old paint system, that have a set functions that let the system works around a set of elements passed as parameters. This time we will use a system similar to jquery creating an sketch object that can use a set of methods to act around it
 
-function flexbones(xMap){
+function flexbones(xMap) {
+  if (!Array.isArray(xMap)) {
+    xMap = [xMap];
+  }
 
-   if(!Array.isArray(xMap)){ xMap = [xMap]; }
-
-   return new Flexbones(xMap);
+  return new Flexbones(xMap);
 }
 
-function Flexbones(xMap){
+function Flexbones(xMap) {
+  this.x = document.createDocumentFragment();
+  this.context = document.body;
+  this.primitive = xMap;
 
-   this.x         = document.createDocumentFragment();
-   this.context   = document.body;
-   this.primitive = xMap;
+  this.copy = null;
 
-   this.copy = null;
+  /** @type any */
+  this.sketch = function () {
+    this.x = document.createDocumentFragment();
 
-    /** @type any */
-   this.sketch = function(){
+    self = this;
+    xMap = this.primitive;
 
-	   this.x = document.createDocumentFragment();
+    for (var i = 0; i < xMap.length; i++) {
+      //This is an item of the matrix it can be an xObject or an treeArray
+      evalArrayItem(xMap[i]);
+    }
 
-      self = this;
-      xMap = this.primitive;
+    //This take care of detect if a matrix item is an xObject or a TreeArray, in case is a TreeArray call the corresponding functions
+    function evalArrayItem(item, parent = self.x) {
+      //We check if the item is an array, if it is, es a treeArray otherwhise is an xObject (or a textnode, this will be validated in xObjectAction)
+      if (Array.isArray(item)) {
+        treeArrayAction(item, parent);
+      } else {
+        xObjectAction(item, parent);
+      }
+    }
 
-      for (var i = 0; i < xMap.length; i++) {
+    //This will take care of make the corresponding actions when and xObject is detected.
 
-         //This is an item of the matrix it can be an xObject or an treeArray
-         evalArrayItem(xMap[i]);
+    function xObjectAction(xObject, parent = self.x) {
+      let type = typeof xObject;
+      let element;
+      if (type === "string" || type === "number" || type === "boolean") {
+        element = document.createTextNode(xObject);
+      } else if (typeof xObject === "object") {
+        element = xObjectCreate(xObject);
+      }
+      parent.appendChild(element);
+    }
+
+    //This will take care of make the corresponding actions when and TreeArray is detected.
+    function treeArrayAction(treeArray, parent = self.x) {
+      if (treeArray.length == 1) {
+        xObjectAction(treeArray[0], parent);
+        return;
       }
 
-      //This take care of detect if a matrix item is an xObject or a TreeArray, in case is a TreeArray call the corresponding functions
-      function evalArrayItem(item, parent = self.x){
+      //We use treeArray[0] for creating the parent object that will contain all others
+      let tempParent = xObjectCreate(treeArray[0]);
 
-         //We check if the item is an array, if it is, es a treeArray otherwhise is an xObject (or a textnode, this will be validated in xObjectAction)
-         if(Array.isArray(item)){
-
-            treeArrayAction(item, parent);
-         }else{
-
-            xObjectAction(item, parent);
-         }
+      for (var i = 1; i < treeArray.length; i++) {
+        const item = treeArray[i];
+        evalArrayItem(item, tempParent);
       }
 
-      //This will take care of make the corresponding actions when and xObject is detected.
+      parent.appendChild(tempParent);
+      tempParent = parent;
+    }
 
-      function xObjectAction(xObject, parent = self.x){
+    function xObjectCreate(xObject) {
+      const properties = Object.entries(xObject);
+      const element = document.createElement(xObject.x);
 
-         let type = typeof xObject;
-         let element;
-         if(type === 'string' || type === 'number' || type === 'boolean'){
-            element = document.createTextNode(xObject);
-         }else if (typeof xObject === 'object'){
-
-            element = xObjectCreate(xObject);
-         }
-         parent.appendChild(element);
-      }
-
-      //This will take care of make the corresponding actions when and TreeArray is detected.
-      function treeArrayAction(treeArray, parent = self.x){
-
-         if(treeArray.length == 1){
-
-            xObjectAction(treeArray[0], parent);
-            return;
-         }
-
-         //We use treeArray[0] for creating the parent object that will contain all others
-         let tempParent = xObjectCreate(treeArray[0]);
-
-         for (var i = 1; i < treeArray.length; i++) {
-
-            const item = treeArray[i];
-            evalArrayItem(item, tempParent);
-
-         }
-
-         parent.appendChild(tempParent);
-         tempParent = parent;
-
-      }
-
-      function xObjectCreate(xObject){
-
-            const properties = Object.entries(xObject);
-            const element = document.createElement(xObject.x);
-
-            for (var i = 0; i < properties.length; i++) {
-
-               if(properties[i][0] == 'x'){ continue; }
-               element.setAttribute(properties[i][0], properties[i][1]);
-            }
-            return element;
-      }
-
-      return this;
-   }
-
-    /** @type any */
-   this.select = function(selector){
-
-      this.context = document.querySelectorAll(selector);
-
-      return this;
-   }
-
-    /** @type any */
-   this.contextualize = function(context){
-
-      this.context = context;
-      return this;
-   }
-
-   this.clear = function(){
-
-      const context = this.context;
-
-      for(let i = 0; i< context.length; i++){
-
-            let tempContext = context[i];
-            let tempChilds = tempContext.childNodes;
-
-            for(let i; 0 < tempChilds.length; i){
-
-                tempContext.removeChild(tempChilds[0]);
-            }
-      }
-
-      return this;
-   }
-
-   this.bind = function(firstElement = false){
-
-        this.sketch();
-
-        const context = this.context;
-
-        if(firstElement === true){
-
-            for (let i = 0; i < context.length; i++) {
-                  tempX = this.x.cloneNode(true);
-                  this.context.insertBefore(tempX, this.context.firstChild);
-            }
-        }else{
-
-            for (let i = 0; i < context.length; i++) {
-                  const tempX = this.x.cloneNode(true);
-                  context[i].appendChild(tempX);
-            }
+      for (var i = 0; i < properties.length; i++) {
+        if (properties[i][0] == "x") {
+          continue;
         }
+        element.setAttribute(properties[i][0], properties[i][1]);
+      }
+      return element;
+    }
 
-        return this;
-        }
+    return this;
+  };
+
+  /** @type any */
+  this.select = function (selector) {
+    this.context = document.querySelectorAll(selector);
+
+    return this;
+  };
+
+  /** @type any */
+  this.contextualize = function (context) {
+    this.context = context;
+    return this;
+  };
+
+  this.clear = function () {
+    const context = this.context;
+
+    for (let i = 0; i < context.length; i++) {
+      let tempContext = context[i];
+      let tempChilds = tempContext.childNodes;
+
+      for (let i; 0 < tempChilds.length; i) {
+        tempContext.removeChild(tempChilds[0]);
+      }
+    }
+
+    return this;
+  };
+
+  this.bind = function (firstElement = false) {
+    this.sketch();
+
+    const context = this.context;
+
+    if (firstElement === true) {
+      for (let i = 0; i < context.length; i++) {
+        tempX = this.x.cloneNode(true);
+        this.context.insertBefore(tempX, this.context.firstChild);
+      }
+    } else {
+      for (let i = 0; i < context.length; i++) {
+        const tempX = this.x.cloneNode(true);
+        context[i].appendChild(tempX);
+      }
+    }
+
+    return this;
+  };
 }
-
 
 /*
 Base estructure for sketchMap
